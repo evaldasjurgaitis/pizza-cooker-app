@@ -1,0 +1,64 @@
+Paleidimo galimybės:
+
+CMD:
+Nusigauti kur yra patalpintas .jar failas(pizza-cooker) ir parašyti komandą:
+java -jar pizza-cooker.jar
+Pasiekiamumas:
+	Puslapis: http:localhost:8089/ - index.html
+
+	Duomenu bazė:
+		Url: http://localhost:8089/h2-console/
+		Prisijungimo duomenys:
+			JDBC-URL: jdbc:h2:mem:pizza-cooker
+			User Name: cooker
+			Daugiau viskas pagal nutylėjimą.
+
+DOCKER:
+Per komandinę eilutę nusigauti, kur yra patalpinti failai pizza-cooker.jar docker-compose.yaml ir DOCKERFILE.
+Komandinėje eilutėje įrašyti(turi veikti docker su docker-compose):
+docker-compose up
+Pasiekiamumas:
+	Puslapis: http:localhost:8089/ - index.html
+
+	Duomenu baze:
+		Url: http://localhost:8089/h2-console/
+		Prisijungimo duomenys:
+		JDBC-URL: jdbc:h2:mem:pizza-cooker
+		User Name: cooker
+		Daugiau viskas pagal nutylėjimą.
+
+Nepadariau galimybės įrašyti naują cooker-machine, kliento lange. Per postmana siunčiant json galima pridėti pvz:
+{
+    "name": "Alfa",
+    "cookCount": 7,
+    "stockDetails": {
+        "name": "Alfa-stock",
+        "productsDetails": [
+            {
+                "name": "mushrooms",
+                "qty": 1
+            },
+            {
+                "name": "tomatoes",
+                "qty": 5
+            },
+            {
+                "name": "salemi",
+                "qty": 0
+            },
+            {
+                "name": "cheese",
+                "qty": 7
+            },
+            {
+                "name": "dough",
+                "qty": 0
+            },
+            {
+                "name": "sauce",
+                "qty": 0
+            }
+        ]
+    },
+    "clean": true
+}

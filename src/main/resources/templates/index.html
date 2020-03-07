@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Pizza Cooker`s</title>
+</head>
+<body ng-app="pizzaCooker">
+<div ng-controller="PizzaCookerController">
+    <div class="container">
+        <h3>Pizza Cooker`s</h3>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="alert alert-success" role="alert" close="closeAlert()" dismiss-on-timeout="4000"
+                     ng-show="pizzaDetails != null && pizzaDetails.messageType != null && (pizzaDetails.messageType == 'OFFER_PIZZA'  || pizzaDetails.messageType == 'PIZZA_PRODUCED' || pizzaDetails.messageType == 'CLEANED_COOKER_MACHINE')">
+                    <p>{{pizzaDetails.message}}</p>
+                    <div ng-show="pizzaDetails != null && pizzaDetails.messageType != null && pizzaDetails.messageType != 'CLEANED_COOKER_MACHINE'">
+                        <p>Pizza: {{pizzaDetails.pizza.recipeDetails.name}}</p></div>
+                </div>
+                <div class="alert alert-danger" role="alert" close="closeAlert()" dismiss-on-timeout="4000"
+                     ng-show="pizzaDetails != null && pizzaDetails.messageType != null && (pizzaDetails.messageType != 'OFFER_PIZZA' && pizzaDetails.messageType != 'PIZZA_PRODUCED' && pizzaDetails.messageType != 'CLEANED_COOKER_MACHINE')">
+                    {{pizzaDetails.message}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>
+                    <a href="#" ng-click="create()" ng-disabled="menu == null || size == null"
+                       class="btn btn-primary" role="button">Create machine</a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="cookerMachine in cookerMachines">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>{{cookerMachine.name}}</h3>
+                        <div>
+                            <div class="form-group">
+                                <label for="recipes">Menu:</label>
+                                <select class="form-control" id="recipes" ng-model="menu">
+                                    <option value="{{recipe.id}}" ng-repeat="recipe in recipes">{{recipe.name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="pizzaSize">Pizza size:</label>
+                                <select class="form-control" id="pizzaSize" ng-model="size">
+                                    <option value="1">SMALL</option>
+                                    <option value="2">MID</option>
+                                    <option value="3">LARGE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <p>
+                                <a href="#" ng-click="makePizza(cookerMachine.id, menu, size)"
+                                   ng-disabled="menu == null || size == null"
+                                   class="btn btn-primary" role="button">Make</a>
+                                <a href="#" ng-click="cleanCookerMachine(cookerMachine.id)"
+                                   ng-show="!cookerMachine.clean" class="btn btn-primary" role="button">Clean</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/PizzaCookerController.js"></script>
+<script src="js/app/CookerMachineService.js"></script>
+<script src="js/app/RecipeService.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+</html>

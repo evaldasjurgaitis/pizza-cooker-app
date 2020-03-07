@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="01" author="evaldas">
+        <createTable tableName="cooker_machines"
+                     remarks="A table to contain all cooker machines">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)"></column>
+            <column name="cook_count" type="int"></column>
+            <column name="clean" type="bool"></column>
+        </createTable>
+
+        <createTable tableName="stocks"
+                     remarks="A table to contain all the stocks">
+            <column name="id" type="int">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)"></column>
+            <column name="cooker_machine_id" type="int">
+            </column>
+        </createTable>
+
+        <createTable tableName="recipes"
+                     remarks="A table to contain all the recipes">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(100)"></column>
+        </createTable>
+
+        <createTable tableName="stock_products"
+                     remarks="A table to contain all the Stock products">
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="qty" type="int">
+                <constraints nullable="false"  />
+            </column>
+            <column name="stock_id" type="int">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="recipe_products"
+                     remarks="A table to contain all the Recipe products">
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qty" type="int">
+                <constraints nullable="false" />
+            </column>
+            <column name="recipe_id" type="int">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

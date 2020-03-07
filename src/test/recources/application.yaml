@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: pizza-cooker
+  liquibase:
+    enabled: false
+cooker-machine.cook-count.limit: 20

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="03" author="evaldas">
+        <!-- INSERT COOKER MACHINES -->
+        <insert tableName="cooker_machines">
+            <column name="id" value="1"/>
+            <column name="name" value="Alfa"/>
+            <column name="cook_count" value="0"/>
+            <column name="clean" value="true"/>
+        </insert>
+        <insert tableName="cooker_machines">
+            <column name="id" value="2"/>
+            <column name="name" value="Beta"/>
+            <column name="cook_count" value="20"/>
+            <column name="clean" value="false"/>
+        </insert>
+        <insert tableName="cooker_machines">
+            <column name="id" value="3"/>
+            <column name="name" value="Gama"/>
+            <column name="cook_count" value="0"/>
+            <column name="clean" value="true"/>
+        </insert>
+
+        <!-- INSERT STOCKS -->
+        <insert tableName="stocks">
+            <column name="id" value="1"/>
+            <column name="name" value="Alfa-stock"/>
+            <column name="cooker_machine_id" value="1"/>
+        </insert>
+        <insert tableName="stocks">
+            <column name="id" value="2"/>
+            <column name="name" value="Beta-stock"/>
+            <column name="cooker_machine_id" value="2"/>
+        </insert>
+        <insert tableName="stocks">
+            <column name="id" value="3"/>
+            <column name="name" value="Gama-stock"/>
+            <column name="cooker_machine_id" value="3"/>
+        </insert>
+
+        <!-- INSERT STOCKS PRODUCTS -->
+        <insert tableName="stock_products">
+            <column name="name" value="cheese"/>
+            <column name="qty" value="10"/>
+            <column name="stock_id" value="1"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="sauce"/>
+            <column name="qty" value="10"/>
+            <column name="stock_id" value="1"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="salemi"/>
+            <column name="qty" value="10"/>
+            <column name="stock_id" value="1"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="tomatoes"/>
+            <column name="qty" value="10"/>
+            <column name="stock_id" value="1"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="mushrooms"/>
+            <column name="qty" value="10"/>
+            <column name="stock_id" value="1"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="dough"/>
+            <column name="qty" value="10"/>
+            <column name="stock_id" value="1"/>
+        </insert>
+
+        <insert tableName="stock_products">
+            <column name="name" value="cheese"/>
+            <column name="qty" value="50"/>
+            <column name="stock_id" value="2"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="sauce"/>
+            <column name="qty" value="100"/>
+            <column name="stock_id" value="2"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="salemi"/>
+            <column name="qty" value="60"/>
+            <column name="stock_id" value="2"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="tomatoes"/>
+            <column name="qty" value="90"/>
+            <column name="stock_id" value="2"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="mushrooms"/>
+            <column name="qty" value="50"/>
+            <column name="stock_id" value="2"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="dough"/>
+            <column name="qty" value="100"/>
+            <column name="stock_id" value="2"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="cheese"/>
+            <column name="qty" value="90"/>
+            <column name="stock_id" value="3"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="sauce"/>
+            <column name="qty" value="60"/>
+            <column name="stock_id" value="3"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="salemi"/>
+            <column name="qty" value="70"/>
+            <column name="stock_id" value="3"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="tomatoes"/>
+            <column name="qty" value="60"/>
+            <column name="stock_id" value="3"/>
+        </insert>
+        <insert tableName="stock_products">
+            <column name="name" value="dough"/>
+            <column name="qty" value="100"/>
+            <column name="stock_id" value="3"/>
+        </insert>
+
+        <!-- INSERT RECIPES -->
+        <insert tableName="recipes">
+            <column name="id" value="1"/>
+            <column name="name" value="Margarita"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="2"/>
+            <column name="name" value="Venecija"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="3"/>
+            <column name="name" value="Pikaso"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="4"/>
+            <column name="name" value="Romeo"/>
+        </insert>
+        <insert tableName="recipes">
+            <column name="id" value="5"/>
+            <column name="name" value="Student"/>
+        </insert>
+
+        <!-- INSERT REICPES PRODUCTS -->
+        <insert tableName="recipe_products">
+            <column name="name" value="dough"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="cheese"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="sauce"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="salemi"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="1"/>
+        </insert>
+
+        <insert tableName="recipe_products">
+            <column name="name" value="dough"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="mushrooms"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="sauce"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="salemi"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="2"/>
+        </insert>
+
+
+        <insert tableName="recipe_products">
+            <column name="name" value="dough"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+       <insert tableName="recipe_products">
+            <column name="name" value="mushrooms"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="sauce"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="salemi"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="tomatoes"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="3"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="dough"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="mushrooms"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="cheese"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="sauce"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="salemi"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="tomatoes"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="4"/>
+        </insert>
+
+
+        <insert tableName="recipe_products">
+            <column name="name" value="dough"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+
+        <insert tableName="recipe_products">
+            <column name="name" value="cheese"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="sauce"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+        <insert tableName="recipe_products">
+            <column name="name" value="salemi"/>
+            <column name="qty" value="1"/>
+            <column name="recipe_id" value="5"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="02" author="evaldas">
+        <addForeignKeyConstraint baseColumnNames="cooker_machine_id"
+                                 baseTableName="stocks"
+                                 constraintName="fk_cooker_machine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cooker_machines"/>
+
+        <addForeignKeyConstraint baseColumnNames="stock_id"
+                                 baseTableName="stock_products"
+                                 constraintName="fk_stock_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="stocks"/>
+
+        <addForeignKeyConstraint baseColumnNames="recipe_id"
+                                 baseTableName="recipe_products"
+                                 constraintName="fk_recipe_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="recipes"/>
+
+        <createSequence catalogName="cooker_machines"
+                        cycle="true"
+                        incrementBy="1"
+                        schemaName="public"
+                        sequenceName="cooker_machine_id_seq"
+                        startValue="4"/>
+
+        <createSequence catalogName="recipes"
+                        cycle="true"
+                        incrementBy="1"
+                        schemaName="public"
+                        sequenceName="recipe_id_seq"
+                        startValue="6"/>
+
+        <createSequence catalogName="stocks"
+                        cycle="true"
+                        incrementBy="1"
+                        schemaName="public"
+                        sequenceName="stock_id_seq"
+                        startValue="4"/>
+    </changeSet>
+</databaseChangeLog>
